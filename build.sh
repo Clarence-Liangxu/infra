@@ -72,6 +72,11 @@ function help_msg()
 function download_dependency()
 {
     echo "download_dependency"
+    if test ! -d ./pkg; then
+	mkdir pkg
+	echo "mkdir pkg"
+    fi
+    
     cd $DEP_DIR  || { echo "[ERROR] Failed to change directory"; exit 1; }
 
     if [ ! -f $GMP_PKG$GMP_SUFFIX ]; then
